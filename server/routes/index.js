@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var competitorsArray = [];
+var fighters = [];
 
 router.get('/submit', function(req, res, next) {
   res.render('submit', { title: 'Let\'s Get Ready to RUMBLE!!!!', title2: 'There can be ONLY one!'});
