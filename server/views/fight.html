@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>{{ title }}</h1>
+    <p>{{ title2 }}</p>
+
+  <br>
+  <br>
+
+  <div class = 'row col-xs-6'>
+
+    <h2>{{name1}}</h2>
+    <div class = 'picture col-xs-12'>
+    {{picture1}}
+    </div>
+
+  </div>
+
+  <h1>VS</h1>
+
+   <div class = 'row col-xs-6'>
+
+    <h2>{{name2}}</h2>
+    <div class = 'picture col-xs-12'>
+    {{picture2}}
+    </div>
+
+  </div>
+
+  </div>
+
+
+
+{% endblock %}

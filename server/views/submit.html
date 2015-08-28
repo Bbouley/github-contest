@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>{{ title }}</h1>
+    <p>{{ title2 }}</p>
+
+    <br>
+
+      <form action = '/submit' method = 'post'>
+        <div class="form-group">
+          <label for="githubName">Github Name</label>
+          <input type="text" class="form-control" id="github-name" placeholder="Name" name = 'name'>
+        </div>
+        <div class="form-group">
+          <label for="github-url">Github URL</label>
+          <input type="text" class="form-control" id="github-url" placeholder="URL" name = 'URL'>
+        </div>
+        <button class="btn btn-default">Submit</button>
+      </form>
+
+    <br>
+
+      <h3>Competitors</h3>
+      <br>
+      <ul>
+        {% for submission in competitorsArray %}
+          <li>{{submission.githubName}}</li>
+        {% endfor %}
+      </ul>
+
+    <h3>{{error}}</h3>
+
+    <form action = '/fight' method = 'get'>
+      <button id = 'fight' class="btn btn-default">FIGHT!!!</button>
+    </form>
+
+  </div>
+
+{% endblock %}
