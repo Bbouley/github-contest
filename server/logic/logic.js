@@ -1,18 +1,17 @@
-var models = require('../models/competitors.js');
+var competitors = require('../models/competitors.js');
 
 function urlValidation(array, name, url){
-  for (var i = 0; i < models.competitorsArray.length; i++) {
-   if(models.competitorsArray[i].githubName === name){
-    return {title: 'Let\'s Get Ready to RUMBLE!!!!', title2: 'There can be ONLY one!', competitorsArray : competitorsArray, error: 'That competitor\'s already here!!!'};
+  for (var i = 0; i < array.length; i++) {
+   if(array[i].githubName === name){
+    return 'that competitor\'s already here!!';
    }
  }
   if(array.length === 8){
-    return {title: 'Let\'s Get Ready to RUMBLE!!!!', title2: 'There can be ONLY one!', competitorsArray : competitorsArray, error: 'Your Array is full!!'};
+    return 'Your Array is full!!';
   } else {
-    var submission = new Submission(name, url);
-    competitorsArray.push(submission);
-    console.log(competitorsArray);
-    return ({ title: 'Let\'s Get Ready to RUMBLE!!!!', title2: 'There can be ONLY one!', competitorsArray : competitorsArray});
+    var submission = new competitors.Submission(name, url);
+    array.push(submission);
+    return array;
   }
 }
 

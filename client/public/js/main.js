@@ -12,14 +12,17 @@ $(document).on('ready', function() {
       name : $githubName,
       URL : $githubURL,
     }, function(data){
+      console.log(data);
       $('#github-name').val('');
       $('#github-url').val('');
-    });
-
-    $.get('api/v1/submit', function(data){
+      if(typeof data === 'string'){
+        $('.error').html('');
+        $('.error').html('<p>' + data + '</p>');
+      } else {
       $('.competitor-names').html('');
       for (var i = 0; i < data.length; i++) {
         $('.competitor-names').append('<li>' + data[i].githubName +'</li>');
+       }
       }
     });
   });
