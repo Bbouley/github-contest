@@ -14,7 +14,6 @@ $(document).on('ready', function() {
     }, function(data){
       $('#github-name').val('');
       $('#github-url').val('');
-
     });
 
     $.get('api/v1/submit', function(data){
@@ -22,6 +21,20 @@ $(document).on('ready', function() {
       for (var i = 0; i < data.length; i++) {
         $('.competitor-names').append('<li>' + data[i].githubName +'</li>');
       }
+    });
+  });
+
+  $('.votebutton').on('click', function(event){
+    event.preventDefault();
+    var $index = $('.votebutton').index(this);
+    var $clicked = $(this);
+
+    $.post('api/v1/fight', {
+      index : $index,
+    }, function(data){
+      var votes = parseInt(data);
+      $clicked.html('');
+      $clicked.html('<p>Votes : ' + data + '<p>');
     });
 
   });

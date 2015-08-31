@@ -10,16 +10,15 @@ var logic = require('../logic/logic.js');
 // });
 
 router.post('/submit', function(req, res, next){
-  console.log(req.body);
  var submission = new competitors.Submission(req.body.name, req.body.URL);
  competitors.competitorsArray.push(submission);
  res.json(competitors.competitorsArray);
 });
 
-// router.post('/fight', function(req, res, next){
-//   competitorsArray[req.body.index].votes += 1;
-//   res.json(competitorsArray[req.body.index].votes);
-// });
+router.post('/fight', function(req, res, next){
+  competitors.competitorsArray[req.body.index].votes += 1;
+  res.json(competitors.competitorsArray[req.body.index].votes);
+});
 
 router.get('/submit', function(req, res, next){
   res.json(competitors.competitorsArray);
