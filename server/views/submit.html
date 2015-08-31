@@ -12,7 +12,7 @@
 
     <br>
 
-      <form action = '/submit' method = 'post'>
+      <form>
         <div class="form-group">
           <label for="githubName">Github Name</label>
           <input type="text" class="form-control" id="github-name" placeholder="Name" name = 'name'>
@@ -21,14 +21,14 @@
           <label for="github-url">Github URL</label>
           <input type="text" class="form-control" id="github-url" placeholder="URL" name = 'URL'>
         </div>
-        <button class="btn btn-default">Submit</button>
+        <button class="btn btn-default" id = 'addSubmission'>Submit</button>
       </form>
 
     <br>
 
       <h3>Competitors</h3>
       <br>
-      <ul>
+      <ul class = 'competitor-names'>
         {% for submission in competitorsArray %}
           <li>{{submission.githubName}}</li>
         {% endfor %}

@@ -7,10 +7,6 @@ var Submission = function(githubName, githubURL, githubImage){
   this.votes = 0;
 };
 
-var submission = new Submission('test1', 'test1');
-
-competitorsArray.push(submission);
-
 module.exports = {
   Submission: Submission,
   competitorsArray:competitorsArray
