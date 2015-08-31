@@ -13,25 +13,53 @@
   <br>
   <br>
 
-  <div class = 'row col-xs-6'>
 
-    <h2>{{name1}}</h2>
+
+
+
+    {% for submission in competitorsArray %}
+
+    {% if submission.index % 2 === 0  %}
+
+  <div class = 'fighter row col-xs-6 text-center'>
+
+    <h2>{{submission.githubName}}</h2>
     <div class = 'picture col-xs-12'>
-    {{picture1}}
+    <img src = '{{submission.githubImage}}' alt = 'competitors-pic'>
+    <br><br>
+
+      <button type="submit" class="btn btn-success col-xs-12">Vote</button>
+      <br>
+
+    <h4 class = 'vote'>{{submission.votes}}</h4>
+
     </div>
 
   </div>
 
-  <h1>VS</h1>
+  {% else %}
 
-   <div class = 'row col-xs-6'>
+   <div class = 'fighter row col-xs-6 col-xs-offset-6 text-center'>
 
-    <h2>{{name2}}</h2>
+    <h2>{{submission.githubName}}</h2>
     <div class = 'picture col-xs-12'>
-    {{picture2}}
+    <img src = '{{submission.githubImage}}' alt = 'competitors-pic'>
+    <br><br>
+
+      <button type="submit" class="btn btn-success col-xs-12">Vote</button>
+      <br>
+
+    <h4 class = 'vote'>{{submission.votes}}</h4>
+
     </div>
 
   </div>
+
+    {% endif %}
+
+    {% endfor %}
+
+
 
   </div>
 

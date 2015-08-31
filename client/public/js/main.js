@@ -3,8 +3,20 @@
 $(document).on('ready', function() {
   console.log('sanity check!');
 
-  $('#fight').on('click', function(req, res){
-    console.log('testclicky');
+  $('.fighter').on('click', function(event){
+    event.preventDefault();
+    var $index = ($(this).index('.fighter'));
+
+    $.post('/fight', {index: $index}, function(data){
+      console.log('post');
+    });
+
+    $.get('/fight', function(data){
+      console.log(data);
+    });
+
   });
 
 });
+
+
